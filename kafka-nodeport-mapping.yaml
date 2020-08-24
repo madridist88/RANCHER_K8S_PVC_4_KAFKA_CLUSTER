@@ -1,0 +1,23 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.4.1.113"],"port":9092,"protocol":"TCP","serviceName":"kafka:kafka-nodeport-mapping","allNodes":true}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"kafka-nodeport-mapping","namespace":"kafka"},"spec":{"ports":[{"name":"client","nodePort":9092,"port":9092,"targetPort":9092}],"selector":{"app":"kafka"},"type":"NodePort"}}
+  creationTimestamp: null
+  name: kafka-nodeport-mapping
+  selfLink: /api/v1/namespaces/kafka/services/kafka-nodeport-mapping
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: client
+    port: 9092
+    protocol: TCP
+    targetPort: 9092
+  selector:
+    app: kafka
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

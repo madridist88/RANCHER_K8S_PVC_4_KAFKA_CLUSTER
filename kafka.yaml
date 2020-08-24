@@ -1,0 +1,26 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-rg6th
+    field.cattle.io/ipAddresses: "null"
+    field.cattle.io/targetDnsRecordIds: "null"
+    field.cattle.io/targetWorkloadIds: "null"
+  creationTimestamp: null
+  labels:
+    cattle.io/creator: norman
+  name: kafka
+  selfLink: /api/v1/namespaces/kafka/services/kafka
+spec:
+  clusterIP: None
+  ports:
+  - name: default
+    port: 42
+    protocol: TCP
+    targetPort: 42
+  selector:
+    app: kafka
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

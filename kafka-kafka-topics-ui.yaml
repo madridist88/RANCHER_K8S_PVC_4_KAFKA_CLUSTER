@@ -1,0 +1,25 @@
+﻿apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.4.1.113"],"port":80,"protocol":"HTTP","serviceName":"kafka:kafka-kafka-topics-ui","ingressName":"kafka:kafka-kafka-topics-ui","hostname":"kafka-kafka-topics-ui.kafka.10.4.1.113.xip.io","allNodes":true}]'
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: kafka-topics-ui
+    chart: kafka-topics-ui-0.1.0
+    heritage: Tiller
+    io.cattle.field/appId: kafka
+    release: kafka
+  name: kafka-kafka-topics-ui
+  selfLink: /apis/extensions/v1beta1/namespaces/kafka/ingresses/kafka-kafka-topics-ui
+spec:
+  rules:
+  - host: kafka-kafka-topics-ui.kafka.10.4.1.113.xip.io
+    http:
+      paths:
+      - backend:
+          serviceName: kafka-kafka-topics-ui
+          servicePort: 8000
+status:
+  loadBalancer: {}

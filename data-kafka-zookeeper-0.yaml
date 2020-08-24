@@ -1,0 +1,22 @@
+﻿apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+  creationTimestamp: null
+  finalizers:
+  - kubernetes.io/pvc-protection
+  labels:
+    app: zookeeper
+    release: kafka
+  name: data-kafka-zookeeper-0
+  selfLink: /api/v1/namespaces/kafka/persistentvolumeclaims/data-kafka-zookeeper-0
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: volume-zookeeper2
+status: {}
